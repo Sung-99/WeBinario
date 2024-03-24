@@ -1,0 +1,165 @@
+body{
+  background-color: black;
+}
+
+a{
+  text-decoration: none;
+}
+
+header{
+  margin-top: 30px;
+  height: 200px;
+  margin-bottom: 10px;
+  padding: 5px;
+ 
+}
+.ans{
+  margin: 0px;
+  margin-bottom: 10px;
+  left: 80px;
+  position: relative;
+}
+
+
+h1 {
+  color: white;
+  border: #fff;
+  border-style: solid;
+  border-radius: 25px;
+  padding: 10px;
+  transform: rotate(25deg);
+  position:absolute;
+  transform-origin: right ;
+	animation: swing 5s ease infinite;
+}
+@keyframes swing {
+	20% { transform: rotate(15deg); }	
+	40% { transform: rotate(-10deg); }
+	60% { transform: rotate(5deg); }	
+	80% { transform: rotate(-5deg); }	
+	100% { transform: rotate(0deg); }
+}
+
+
+
+
+/* Inner header */
+.inner_header{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+
+/*-outer contents--*/
+
+.My_outer_div_bin_to_hexa{
+	display:flex;
+	flex-direction: row;
+	align-items: center;
+  justify-content: center;
+  gap: 130px;
+ 
+}
+
+
+
+.My_btn_bin_to_hexa {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(
+  to top left,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 30%,
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    		
+}
+
+.My_btn_bin_to_hexa:hover {
+  background-color: rgb(27, 25, 25);
+}
+
+.My_btn_bin_to_hexa:active {
+  box-shadow:
+    inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/*--Most outer content inside--*/
+.inner_bin_to_hexa{
+  display:flex;
+	flex-direction: row;
+	align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+}
+
+
+/*----Outer div to input---*/
+
+.inpuAnswer input{
+  width: 90px;
+}
+
+
+
+/*---logos---*/
+.logo{
+  width:250px;
+  display: flex;
+
+  flex-direction: column;
+}
+.logo p{
+  color: white;
+  text-decoration:none;
+  font-size: 14px;
+  width: 210px;
+}
+
+
+.logo .image_logo{
+  height: 30px;
+  width: 30px;
+
+  padding: 5px;
+  display: inline-block;
+  position: relative;
+ 
+}
+
+.pointer_linkedin{
+  cursor: pointer;
+}
+.inner_log{
+  display: flex;
+  width: 250px;
+}
+
+
+
+.Answer_converted{
+  margin-top: 2px;
+  padding: 10px;
+  display: flex;
+  color: white;
+ 
+  
+  flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;;
+}

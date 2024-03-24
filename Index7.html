@@ -1,0 +1,58 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css7.css">
+        <script src="ex7.js" defer></script>
+        <title>Exercise</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="inner_header">
+                <h1  >WeBinario</h1>
+            </div>
+                <div class="logo">
+                   <div class="inner_log"> 
+                     <img class="image_logo" src="Images/whatsapp-logo-png-.png" alt="some text">
+                     <p>(31)9 95693141</p>
+                   </div> 
+                   <div class="inner_log">
+                     <img class="image_logo" src="Images/linkedin-logo-png.png" alt="some text">
+                     <a href="https://www.linkedin.com/in/vitor-hugo99/"><p>www.linkedin.com/in/vitor-hugo99</p></a>
+                   </div>
+                </div>
+        </header>
+        <div class='My_outer_div_bin_to_hexa'>
+            <div class="inner_bin_to_hexa">       
+		        <div class="sel">
+			     <select id="optionsList">
+  				    <option value="bin">Binario</option>
+  				    <option value="hex">Hexa</option>
+  				    <option value="oct">Octal</option>
+  				    <option value="dec">Decimal</option>
+			     </select>
+                 
+		        </div>
+                <p style="color: white;">To</p>
+                <div class="sel">
+                    <select id="optionsList2">
+                       <option value="bin">Binario</option>
+                       <option value="hex">Hexa</option>
+                       <option value="oct">Octal</option>
+                       <option value="dec">Decimal</option>
+                    </select>
+                  </div>
+                  <div class="inpuAnswer">
+                    <input id="answer" name="answer" type="number" min="0">
+                 </div>
+            </div>
+	    </div>
+        <div class="Answer_converted">
+            <button name="Convert" id="Convert">Convert</button>
+            <p class="ans">||</p>
+            <input id="answer_converted" name="answer"  min="0" readonly>
+            <button name="Limpar" id="Limpar" style="width: 70px; margin-top: 5px;">Limpar</button>
+        </div>
+    </body>
+</html>
