@@ -10,13 +10,13 @@ let out = document.querySelector('#answer_converted');
 
 let inputEntry = document.querySelector('#answer');
 
-let myBin = [];
 
+let myBin = [];
 
 
 convr.addEventListener("click", () =>{
 
-      
+      myBin = [];
       let convertedNumb = parseInt(inputEntry.value);  
       if(options.selectedOptions[0].label == "Decimal" && options2.selectedOptions[0].label == "Binario" )
       {
@@ -36,7 +36,7 @@ convr.addEventListener("click", () =>{
        
        let instantialVariablw = myBin.toReversed().join("");
        out.value = instantialVariablw;
-       instantialVariablw = 0;
+       
       }
       
      
