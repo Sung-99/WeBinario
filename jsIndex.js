@@ -87,11 +87,30 @@ convr.addEventListener("click", () =>{
             xInitial++;
        }
        xInitial = 0;
-       while(xInitial < castNumb.length){
-        lengthMyBinNumber--;
-        if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
-            xInitial++;
+
+       //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
+       let trueParts = false;
+       let rest;
+       if(lengthMyBinNumber%4 == 0){
+        trueParts = true;
+        rest = rest/4; 
        }
+
+       let contParts = 1;
+       if(trueParts){
+            
+                while(xInitial < lengthMyBinNumber){
+                    while(xInitial < contParts * 4){
+
+                    }
+                }
+                
+            
+
+        }
+       
+
+       
        if(onlyBin > 0){
         out.value ='Apenas numeros 1s e 0s';
        }else{
