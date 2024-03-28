@@ -100,6 +100,36 @@ convr.addEventListener("click", () =>{
       
        
       } 
+
+      if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Decimal" )
+      {
+       let onlyBin = 0;
+       let result = 0; 
+       let castNumb =inputEntry.value;
+       let lengthMyBinNumber = castNumb.length ;
+       let xInitial = 0;
+       while(xInitial < castNumb.length){
+        
+        if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
+            onlyBin++;
+        }
+        
+            xInitial++;
+       }
+       xInitial = 0;
+       while(xInitial < castNumb.length){
+        lengthMyBinNumber--;
+        if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
+            xInitial++;
+       }
+       if(onlyBin > 0){
+        out.value ='Apenas numeros 1s e 0s';
+       }else{
+        out.value = result;
+       }
+      
+       
+      } 
       
 
 })
