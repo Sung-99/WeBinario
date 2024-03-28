@@ -90,19 +90,29 @@ convr.addEventListener("click", () =>{
 
        //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
        let trueParts = false;
-       let rest;
-       if(lengthMyBinNumber%4 == 0){
-        trueParts = true;
-        rest = rest/4; 
-       }
-
+       if(lengthMyBinNumber%4 == 0)trueParts = true;
        let contParts = 1;
+
        if(trueParts){
             
-                while(xInitial < lengthMyBinNumber){
-                    while(xInitial < contParts * 4){
-
+                while(xInitial < castNumb.length){
+                  if(xInitial == 0){  
+                    while(xInitial < contParts * 3){
+                        lengthMyBinNumber--;
+                        if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
+                        xInitial++;
                     }
+                    xInitial = xInitial + contParts + 1;
+                    contParts = contParts * 3; 
+                  }else
+                  {
+                    while(xInitial < contParts + 4){
+                        xInitial++;
+                    }
+                    xInitial = xInitial + contParts;
+                    contParts = contParts + 4;  
+                  }
+                  
                 }
                 
             
@@ -114,8 +124,29 @@ convr.addEventListener("click", () =>{
        if(onlyBin > 0){
         out.value ='Apenas numeros 1s e 0s';
        }else{
-        out.value = result;
-       }
+            if(result < 10){out.value = result;}
+            else{
+                if(result == 10){
+                    out.value = 'A';
+                }else
+                if(result == 11){
+                    out.value = 'B';
+                }else
+                if(result == 12){
+                    out.value = 'C';
+                }else
+                if(result == 13){
+                    out.value = 'D';
+                }else
+                if(result == 14){
+                    out.value = 'E';
+                }else
+                if(result == 15){
+                    out.value = 'F';
+                }
+            }
+        
+        }
       
        
       } 
