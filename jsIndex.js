@@ -100,9 +100,6 @@ convr.addEventListener("click", () =>{
             if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
                 xInitial++;
            }
-                
-            
-
         }
        
 
