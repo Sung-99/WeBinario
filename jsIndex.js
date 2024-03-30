@@ -78,6 +78,7 @@ convr.addEventListener("click", () =>{
        let castNumb =inputEntry.value;
        let lengthMyBinNumber = castNumb.length ;
        let xInitial = 0;
+       let arrayToHex = [];
        while(xInitial < castNumb.length){
         
         if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
@@ -87,49 +88,75 @@ convr.addEventListener("click", () =>{
             xInitial++;
        }
        xInitial = 0;
-
+      
        //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
-       let trueParts = false;
-       if(lengthMyBinNumber%4 == 0 || castNumb.length <= 4)trueParts = true;
-       let contParts = 1;
-
-       if(trueParts){
+       if(castNumb.length <= 4){
             
         while(xInitial < castNumb.length){
             lengthMyBinNumber--;
             if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
                 xInitial++;
            }
-        }
+        }else
+         {
+          if(castNumb.length%4 == 0){
+            lengthMyBinNumber =  castNumb.length;
+            xInitial = 0;
+            let contt = 0;
+           
+            while(castNumb.length > xInitial){
+
+                if(xInitial == 0){
+                    xInitial = xInitial + 3;
+                }else{
+                    xInitial = xInitial + 4;
+                }
+
+                while(contt < xInitial){
+                    lengthMyBinNumber--;
+                    if(castNumb[lengthMyBinNumber] == "1")arrayToHex.push(result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt))));
+                    contt++;
+                   
+                }    
+            }
+          }
+         }
        
 
-       
+
+     
        if(onlyBin > 0){
         out.value ='Apenas numeros 1s e 0s';
-       }else{
-            if(result < 10){out.value = result;}
-            else{
-                if(result == 10){
-                    out.value = 'A';
-                }else
-                if(result == 11){
-                    out.value = 'B';
-                }else
-                if(result == 12){
-                    out.value = 'C';
-                }else
-                if(result == 13){
-                    out.value = 'D';
-                }else
-                if(result == 14){
-                    out.value = 'E';
-                }else
-                if(result == 15){
-                    out.value = 'F';
-                }
-            }
+       }else
+            if(castNumb.length <= 4){
+                if(result < 10){out.value = result;}
+                    else{
+                        if(result == 10){
+                            out.value = 'A';
+                        }else
+                        if(result == 11){
+                            out.value = 'B';
+                        }else
+                        if(result == 12){
+                            out.value = 'C';
+                        }else
+                        if(result == 13){
+                            out.value = 'D';
+                        }else
+                        if(result == 14){
+                             out.value = 'E';
+                        }else
+                        if(result == 15){
+                            out.value = 'F';
+                        }
+                    }
         
-        }
+            }else
+                if(castNumb.length > 4 && castNumb.length%4 == 0){
+                    
+                    out.value =  arrayToHex.toReversed().join("");
+                    
+                }
       
        
       } 
