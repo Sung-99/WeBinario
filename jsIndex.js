@@ -79,6 +79,8 @@ convr.addEventListener("click", () =>{
        let lengthMyBinNumber = castNumb.length ;
        let xInitial = 0;
        let arrayToHex = [];
+       let contt = 0;
+       let ocasionalCont = 0;
        while(xInitial < castNumb.length){
         
         if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
@@ -102,27 +104,29 @@ convr.addEventListener("click", () =>{
           if(castNumb.length%4 == 0){
             lengthMyBinNumber =  castNumb.length;
             xInitial = 0;
-            let contt = 0;
+            
            
-            while(castNumb.length > xInitial){
+            while(castNumb.length > ocasionalCont){
 
-                if(xInitial == 0){
-                    xInitial = xInitial + 3;
-                }else{
+                
                     xInitial = xInitial + 4;
-                }
-
+                    ocasionalCont = ocasionalCont + 4;
                 while(contt < xInitial){
                     lengthMyBinNumber--;
-                    if(castNumb[lengthMyBinNumber] == "1")arrayToHex.push(result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt))));
+                    if(castNumb[lengthMyBinNumber] == "1")result = result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt)));
+                    
                     contt++;
                    
-                }    
+                }
+                arrayToHex.push(result);
+                result = 0;
+                contt = 0;  
+                xInitial = 0;  
             }
           }
          }
        
-
+        
 
      
        if(onlyBin > 0){
@@ -153,43 +157,35 @@ convr.addEventListener("click", () =>{
         
             }else
                 if(castNumb.length > 4 && castNumb.length%4 == 0){
-                    
+                    for(let ccc = 0; ccc < arrayToHex.length; ccc++){
+                        if(arrayToHex[ccc] == 10){
+                            arrayToHex[ccc] = 'A';
+                        }else
+                        if(arrayToHex[ccc] == 11){
+                            arrayToHex[ccc] = 'B';
+                        }else
+                        if(arrayToHex[ccc] == 12){
+                            arrayToHex[ccc] = 'C';
+                        }else
+                        if(arrayToHex[ccc] == 13){
+                            arrayToHex[ccc] = 'D';
+                        }else
+                        if(arrayToHex[ccc] == 14){
+                            arrayToHex[ccc] = 'E';
+                        }else
+                        if(arrayToHex[ccc] == 15){
+                            arrayToHex[ccc] = 'F';
+                        }
+                    }
                     out.value =  arrayToHex.toReversed().join("");
                     
                 }
+
       
        
       } 
 
-      if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Decimal" )
-      {
-       let onlyBin = 0;
-       let result = 0; 
-       let castNumb =inputEntry.value;
-       let lengthMyBinNumber = castNumb.length ;
-       let xInitial = 0;
-       while(xInitial < castNumb.length){
-        
-        if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
-            onlyBin++;
-        }
-        
-            xInitial++;
-       }
-       xInitial = 0;
-       while(xInitial < castNumb.length){
-        lengthMyBinNumber--;
-        if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
-            xInitial++;
-       }
-       if(onlyBin > 0){
-        out.value ='Apenas numeros 1s e 0s';
-       }else{
-        out.value = result;
-       }
-      
-       
-      } 
+  
       
 
 })
