@@ -92,16 +92,10 @@ convr.addEventListener("click", () =>{
        xInitial = 0;
       
        //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
-       if(castNumb.length <= 4){
+       
             
-        while(xInitial < castNumb.length){
-            lengthMyBinNumber--;
-            if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
-                xInitial++;
-           }
-        }else
-         {
-          if(castNumb.length%4 == 0){
+        
+          if(castNumb.length%4 == 0 || castNumb.length <= 4 ){
             lengthMyBinNumber =  castNumb.length;
             xInitial = 0;
             
@@ -124,7 +118,7 @@ convr.addEventListener("click", () =>{
                 xInitial = 0;  
             }
           }
-         }
+         
        
         
 
@@ -132,31 +126,7 @@ convr.addEventListener("click", () =>{
        if(onlyBin > 0){
         out.value ='Apenas numeros 1s e 0s';
        }else
-            if(castNumb.length <= 4){
-                if(result < 10){out.value = result;}
-                    else{
-                        if(result == 10){
-                            out.value = 'A';
-                        }else
-                        if(result == 11){
-                            out.value = 'B';
-                        }else
-                        if(result == 12){
-                            out.value = 'C';
-                        }else
-                        if(result == 13){
-                            out.value = 'D';
-                        }else
-                        if(result == 14){
-                             out.value = 'E';
-                        }else
-                        if(result == 15){
-                            out.value = 'F';
-                        }
-                    }
-        
-            }else
-                if(castNumb.length > 4 && castNumb.length%4 == 0){
+            if(castNumb.length%4 == 0 || castNumb.length <= 4 ){
                     for(let ccc = 0; ccc < arrayToHex.length; ccc++){
                         if(arrayToHex[ccc] == 10){
                             arrayToHex[ccc] = 'A';
