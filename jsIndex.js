@@ -92,9 +92,6 @@ convr.addEventListener("click", () =>{
        xInitial = 0;
       
        //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
-       
-            
-        
           if(castNumb.length%4 == 0 || castNumb.length <= 4 ){
             lengthMyBinNumber =  castNumb.length;
             xInitial = 0;
@@ -117,7 +114,8 @@ convr.addEventListener("click", () =>{
                 contt = 0;  
                 xInitial = 0;  
             }
-          }
+          }else
+                if(castNumb.length%4 != 0)
          
        
         
@@ -150,8 +148,6 @@ convr.addEventListener("click", () =>{
                     out.value =  arrayToHex.toReversed().join("");
                     
                 }
-
-      
        
       } 
 
