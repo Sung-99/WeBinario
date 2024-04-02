@@ -114,7 +114,25 @@ convr.addEventListener("click", () =>{
                 contt = 0;  
                 xInitial = 0;  
             }
-          }
+          }else
+                if(castNumb.length > 4  &&  castNumb.length%4 != 0){
+                    let restKnow =  castNumb.length%4;
+
+                    let anyCount=0;
+                    let jump4 = 4;
+                    while(anyCount >= lengthMyBinNumber){
+
+                        if(lengthMyBinNumber%4 == 0)
+                        lengthMyBinNumber--;
+                    }
+                        console.log(castNumb[lengthMyBinNumber - restKnow]);
+
+                    
+                   
+                    
+                    
+                   // out.value = castNumb[lengthMyBinNumber];   
+                }
                 
          
        
