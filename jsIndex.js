@@ -114,8 +114,8 @@ convr.addEventListener("click", () =>{
                 contt = 0;  
                 xInitial = 0;  
             }
-          }else
-                if(castNumb.length%4 != 0)
+          }
+                
          
        
         
