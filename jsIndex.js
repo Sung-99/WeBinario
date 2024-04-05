@@ -90,7 +90,8 @@ convr.addEventListener("click", () =>{
             xInitial++;
        }
        xInitial = 0;
-       if(castNumb.length > 4  &&  castNumb.length%4 != 0){
+         
+       if(castNumb.length > 3000  &&  castNumb.length%4 != 0){
         let restKnow =  castNumb.length%4;
         let contInnnerWhile = 0;
         let anyCount=0;
@@ -121,10 +122,10 @@ convr.addEventListener("click", () =>{
              
              
         }
-          
+       
        }else
        //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
-          if(castNumb.length <= 4 || castNumb.length%4==0){
+          if(castNumb.length <= -50 || castNumb.length%4==0){
             lengthMyBinNumber =  castNumb.length;
             xInitial = 0;
             
@@ -147,12 +148,12 @@ convr.addEventListener("click", () =>{
                 xInitial = 0;  
             }
           }
-          out.value = 'aa'; 
+    
                 
          
        
         
-
+          out.value ='Apenas numeros 1s e 0s';
      
        if(onlyBin > 0){
         out.value ='Apenas numeros 1s e 0s';
@@ -179,7 +180,7 @@ convr.addEventListener("click", () =>{
                     }
                 }
                 out.value =  arrayToHex.toReversed().join("");       
-            }else
+            }/*else
                 if(castNumb.length%4 == 0 || castNumb.length <= 4 ){
                     for(let ccc = 0; ccc < arrayToHex.length; ccc++){
                         if(arrayToHex[ccc] == 10){
@@ -203,7 +204,7 @@ convr.addEventListener("click", () =>{
                     }
                     out.value =  arrayToHex.toReversed().join("");
                     
-                }  
+                }*/  
                     
        
       } 
