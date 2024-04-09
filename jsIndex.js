@@ -91,7 +91,7 @@ convr.addEventListener("click", () =>{
        }
        xInitial = 0;
          
-       if(castNumb.length > 4){
+       if(castNumb.length > 4 && castNumb.length%4!=0){
         let restKnow =  castNumb.length%4;
         let contInnnerWhile = 0;
         let anyCount=0;
@@ -99,26 +99,32 @@ convr.addEventListener("click", () =>{
         while(anyCount >= lengthMyBinNumber){
             
 
-            if(lengthMyBinNumber%4 == 0){
+            if(lengthMyBinNumber%4 != 0){
                 while(contInnnerWhile < 4){
-                    lengthMyBinNumber--;
+                    
                     if(castNumb[lengthMyBinNumber] == "1")result = result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt)));
-        
+                    contt++;
+                    lengthMyBinNumber--;
                     contInnnerWhile++;
                     
                 }
                 arrayToHex.push(result);
+                contt= 0;
                 contInnnerWhile = 0;
-            }else{
+            }/*else{
                 while(contInnnerWhile < restKnow){
                     lengthMyBinNumber--;
                     if(castNumb[lengthMyBinNumber] == "1")result = result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt)));
                     contInnnerWhile++;
+                    contt++;
+                    
                 }
+                arrayToHex.push(result);
+                contt= 0;
                 contInnnerWhile = 0;
                
-                arrayToHex.push(result);
-             }
+              
+             }*/
              
              
         }
@@ -159,7 +165,7 @@ convr.addEventListener("click", () =>{
         out.value ='Apenas numeros 1s e 0s';
        }else
             if(castNumb.length > 4  &&  castNumb.length%4 != 0){
-                for(let ccc = 0; ccc < arrayToHex.length; ccc++){
+                /*for(let ccc = 0; ccc < arrayToHex.length; ccc++){
                     if(arrayToHex[ccc] == 10){
                         arrayToHex[ccc] = 'A';
                     }else
@@ -178,7 +184,7 @@ convr.addEventListener("click", () =>{
                     if(arrayToHex[ccc] == 15){
                         arrayToHex[ccc] = 'F';
                     }
-                }
+                }*/
                 out.value =  arrayToHex.toReversed().join("");       
             }else
                 if(castNumb.length%4 == 0 || castNumb.length <= 4 ){
