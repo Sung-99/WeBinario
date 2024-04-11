@@ -111,7 +111,7 @@ convr.addEventListener("click", () =>{
                 arrayToHex.push(result);
                 contt= 0;
                 contInnnerWhile = 0;
-            }/*else{
+            }else{
                 while(contInnnerWhile < restKnow){
                     lengthMyBinNumber--;
                     if(castNumb[lengthMyBinNumber] == "1")result = result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt)));
@@ -124,7 +124,7 @@ convr.addEventListener("click", () =>{
                 contInnnerWhile = 0;
                
               
-             }*/
+             }
              
              
         }
