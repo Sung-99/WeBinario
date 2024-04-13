@@ -98,6 +98,34 @@ convr.addEventListener("click", () =>{
 
       }
 
+      //dec to oct
+      if(options.selectedOptions[0].label == "Decimal" && options2.selectedOptions[0].label == "Octal" )
+      {
+        let arrayToHex = []; 
+        let castNumb =Number(inputEntry.value);
+        
+              
+              let quotioent= Math.floor(castNumb / 8);
+               
+               arrayToHex.push(castNumb % 8);
+      
+                if(quotioent > 8){
+                    while(quotioent > 8){
+                        arrayToHex.push(quotioent%8);
+                        quotioent = Math.floor(quotioent / 8);
+                       
+                        
+                    }
+
+                    arrayToHex.push(quotioent);
+                }else{
+                    arrayToHex.push(Math.floor(castNumb/8));
+                }
+        
+
+                if(castNumb>8)out.value = arrayToHex.toReversed().join("");
+                if(castNumb<=8)out.value = arrayToHex[0];
+      }
         /*-----------------------*/ 
      
      //Bin to any 
