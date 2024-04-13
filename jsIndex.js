@@ -130,6 +130,7 @@ convr.addEventListener("click", () =>{
      
      //Bin to any 
      /*-----------------------*/ 
+     //bin to dec
       if(options.selectedOptions[0].label == "Binario" && options2.selectedOptions[0].label == "Decimal" )
       {
        let onlyBin = 0;
@@ -159,7 +160,7 @@ convr.addEventListener("click", () =>{
       
        
       }
-      
+      //bin to hex
       if(options.selectedOptions[0].label == "Binario" && options2.selectedOptions[0].label == "Hexa" )
       {
        let onlyBin = 0;
@@ -288,8 +289,12 @@ convr.addEventListener("click", () =>{
         
             }
             /*-----------------------*/ 
+            //bin to octal
 
-  
+            if(options.selectedOptions[0].label == "Binario" && options2.selectedOptions[0].label == "Octal" )
+      {
+
+      }
       
 
 })
