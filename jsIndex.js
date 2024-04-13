@@ -376,6 +376,7 @@ convr.addEventListener("click", () =>{
             if(castNumb.length%3 == 0 || castNumb.length <= 3 )out.value =  arrayToHex.toReversed().join("");
                 
       }
+      /*----------------------------*/
       
 
 })
