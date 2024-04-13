@@ -293,7 +293,88 @@ convr.addEventListener("click", () =>{
 
             if(options.selectedOptions[0].label == "Binario" && options2.selectedOptions[0].label == "Octal" )
       {
+        let onlyBin = 0;
+       let result = 0; 
+       let castNumb =inputEntry.value;
+       let lengthMyBinNumber = castNumb.length ;
+       let xInitial = 0;
+       let arrayToHex = [];
+       let contt = 0;
+       let ocasionalCont = 0;
+       while(xInitial < castNumb.length){
+        
+        if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
+            onlyBin++;
+        }
+        
+            xInitial++;
+       }
+       xInitial = 0;
+         
+       if(castNumb.length > 3 && castNumb.length%3!=0){
+        
+        let contInnnerWhile = 0;
+        let anyCount=0;
+       
+        while(anyCount < lengthMyBinNumber){
+            
+           // result = castNumb[0];
+            if(lengthMyBinNumber%3 != 0){
+                while(contInnnerWhile < 3){
+                    
+                    lengthMyBinNumber--;
+                    if(lengthMyBinNumber < 0)break;
+                    if(castNumb[lengthMyBinNumber] == "1")result = result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt)));
+                    contt++;
+                    
+                    contInnnerWhile++;
+                    
+                }
+                arrayToHex.push(result);
+                contt= 0;
+                contInnnerWhile = 0;
+                result =0;
+            }
+             
+             
+        }
+       
+       }else
+       //See if my binary sequence is an exact quotioent in 3 parts like: 100 010 100 on 100010100 (ex)
+          if(castNumb.length <= 3 || castNumb.length%3==0){
+            lengthMyBinNumber =  castNumb.length;
+            xInitial = 0;
+            
+           
+            while(castNumb.length > ocasionalCont){
 
+                
+                    xInitial = xInitial + 3;
+                    ocasionalCont = ocasionalCont + 3;
+                while(contt < xInitial){
+                    lengthMyBinNumber--;
+                    if(castNumb[lengthMyBinNumber] == "1")result = result + (parseInt(castNumb[lengthMyBinNumber]) * (Math.pow(2, contt)));
+                    
+                    contt++;
+                   
+                }
+                arrayToHex.push(result);
+                result = 0;
+                contt = 0;  
+                xInitial = 0;  
+            }
+          }
+
+       if(onlyBin > 0){
+        out.value ='Apenas numeros 1s e 0s';
+       }else
+            if(castNumb.length > 3  &&  castNumb.length%3 != 0){
+                
+                out.value = arrayToHex.toReversed().join("");  
+                    
+            }else
+            if(castNumb.length%3 == 0 || castNumb.length <= 3 )out.value =  arrayToHex.toReversed().join("");
+                
       }
       
 
