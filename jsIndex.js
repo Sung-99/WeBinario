@@ -18,6 +18,10 @@ convr.addEventListener("click", () =>{
 
       myBin = [];
       let convertedNumb = parseInt(inputEntry.value);  
+
+      //Dec to any
+       /*-----------------------*/ 
+       //dec to binario
       if(options.selectedOptions[0].label == "Decimal" && options2.selectedOptions[0].label == "Binario" )
       {
         
@@ -38,9 +42,66 @@ convr.addEventListener("click", () =>{
        out.value = instantialVariablw;
        
       }
+
+      //dec to hexa
+      if(options.selectedOptions[0].label == "Decimal" && options2.selectedOptions[0].label == "Hexa" )
+      {
+        
+        let arrayToHex = []; 
+        let castNumb =Number(inputEntry.value);
+        
+              
+              let quotioent= Math.floor(castNumb / 16);
+               
+               arrayToHex.push(castNumb % 16);
       
+                if(quotioent > 15){
+                    while(quotioent > 15){
+                        arrayToHex.push(quotioent%16);
+                        quotioent = Math.floor(quotioent / 16);
+                       
+                        
+                    }
+
+                    arrayToHex.push(quotioent);
+                }else{
+                    arrayToHex.push(Math.floor(castNumb/16));
+                }
+                for(let ccc = 0; ccc < arrayToHex.length; ccc++){
+                    if(arrayToHex[ccc] == 10){
+                        arrayToHex[ccc] = 'A';
+                    }else
+                    if(arrayToHex[ccc] == 11){
+                        arrayToHex[ccc] = 'B';
+                    }else
+                    if(arrayToHex[ccc] == 12){
+                        arrayToHex[ccc] = 'C';
+                    }else
+                    if(arrayToHex[ccc] == 13){
+                        arrayToHex[ccc] = 'D';
+                    }else
+                    if(arrayToHex[ccc] == 14){
+                        arrayToHex[ccc] = 'E';
+                    }else
+                    if(arrayToHex[ccc] == 15){
+                        arrayToHex[ccc] = 'F';
+                    }
+                }
+
+                if(castNumb>15)out.value = arrayToHex.toReversed().join("");
+                if(castNumb<=15)out.value = arrayToHex[0];
+                
+        
+
+       
+
+
+      }
+
+        /*-----------------------*/ 
      
-      
+     //Bin to any 
+     /*-----------------------*/ 
       if(options.selectedOptions[0].label == "Binario" && options2.selectedOptions[0].label == "Decimal" )
       {
        let onlyBin = 0;
@@ -92,7 +153,7 @@ convr.addEventListener("click", () =>{
        xInitial = 0;
          
        if(castNumb.length > 4 && castNumb.length%4!=0){
-        let restKnow =  castNumb.length%4;
+        
         let contInnnerWhile = 0;
         let anyCount=0;
        
@@ -113,14 +174,14 @@ convr.addEventListener("click", () =>{
                 arrayToHex.push(result);
                 contt= 0;
                 contInnnerWhile = 0;
-                result = 0;
+                result =0;
             }
              
              
         }
        
        }else
-       //See if my binary sequence is an exact divisions in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
+       //See if my binary sequence is an exact quotioent in 4 parts like: 1000 0101 1001 on 100001011001 (ex)
           if(castNumb.length <= 4 || castNumb.length%4==0){
             lengthMyBinNumber =  castNumb.length;
             xInitial = 0;
@@ -144,13 +205,7 @@ convr.addEventListener("click", () =>{
                 xInitial = 0;  
             }
           }
-    
-                
-         
-       
-        
-         
-     
+
        if(onlyBin > 0){
         out.value ='Apenas numeros 1s e 0s';
        }else
@@ -203,8 +258,8 @@ convr.addEventListener("click", () =>{
                     
                 }
         
-       
-      } 
+            }
+            /*-----------------------*/ 
 
   
       
