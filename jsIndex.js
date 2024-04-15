@@ -377,7 +377,93 @@ convr.addEventListener("click", () =>{
                 
       }
       /*----------------------------*/
-      
+
+      //Hexa to any
+      /*-----------------------*/ 
+      //Hexa to bina
+      if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Binario" )
+      {
+        let castedNumb = inputEntry.value;
+        let arrayToBin = [];
+        let cont = 0;
+        let test = false;
+        let Test4places = false;
+        let Test3places = false;
+        let Test2places = false;
+        let Test1places = false;
+        while(cont < castedNumb.length){
+            test = false;
+            let timelyVariable = Number(castedNumb[cont]);
+          
+            let contt = 0;
+            /*if(timelyVariable >=8 ){
+                Test4places =true;
+            }else
+                if(timelyVariable>=4){
+                    Test3places = true;
+                }else
+                    if(timelyVariable>=2){
+                        Test2places= true;
+                    }else
+                        if(timelyVariable==1)Test1places = true;*/
+                                        
+          while(timelyVariable >= 1){
+            /*if(Test1places){
+                while(contt < 2){arrayToBin.push(0); contt++;}
+                contt = 0;
+                Test1places = false;
+            }else
+                if(Test2places){
+                    while(contt <= 1){arrayToBin.push(0); contt++;}
+                    contt = 0;
+                    Test2places = false;
+                }else
+                    if(Test3places){
+                        while(contt < 1){arrayToBin.push(0); contt++;}
+                        contt = 0;
+                        Test3places = false; 
+                    }  */
+                    test = true;
+                     
+                if(timelyVariable % 2 == 0) {
+                    //Easy solution***** using push and toReversed()//join() js functions
+                    arrayToBin.push(0);
+               
+                }else{
+                    arrayToBin.push(1);
+                
+                }
+                timelyVariable = Math.floor(timelyVariable/2);
+                
+            
+            
+           
+            //Test4places = false;
+           
+            
+            
+            
+          }
+          if(!test){
+            arrayToBin.push(0);
+            
+          }
+               
+          
+
+                  
+          
+          
+   
+          
+
+            cont++;
+        }
+        out.value = arrayToBin.join();
+
+        
+      }
+
 
 })
 
