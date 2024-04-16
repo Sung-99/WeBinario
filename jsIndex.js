@@ -434,8 +434,14 @@ convr.addEventListener("click", () =>{
 
         
       }
+      /*-----------------------*/ 
+      //Hex to octal
+      
+      if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Binario" )
+      {
 
 
+      }
 })
 
 Limpar.addEventListener("click", () =>{
