@@ -585,7 +585,7 @@ convr.addEventListener("click", () =>{
                 }
                  
       }
-      /*-----------------------*/ 
+      /*---------------------------*/ 
       //Hex to Dec
       
       if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Decimal" )
