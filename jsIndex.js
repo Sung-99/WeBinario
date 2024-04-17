@@ -565,7 +565,8 @@ convr.addEventListener("click", () =>{
         }else
             if(castNumb.length > 3  &&  castNumb.length%3 != 0){
                 if(arrayToOct.toReversed()[1] > 0 && arrayToOct.toReversed()[0] == 0){
-                    arrayToOct.pop();
+                    arrayToOct.pop();//remove the zero when the most left number is 0(after all calculations like *0*00111010 or other number)
+                    //or other number in hexa to bin like 321(16)  = 001100100001(2) the first number is 0
                    
                     out.value  = arrayToOct.toReversed().join("");
                 }else{
@@ -582,12 +583,13 @@ convr.addEventListener("click", () =>{
                         out.value =  arrayToOct.toReversed().join("");
                     }
                 }
-                
+                 
+      }
+      /*-----------------------*/ 
+      //Hex to Dec
       
-        
-        //console.log(finalArrayToBin.join("")[8]);
-        
-
+      if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Decimal" )
+      {
 
       }
 })
