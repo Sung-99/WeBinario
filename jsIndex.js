@@ -667,6 +667,63 @@ convr.addEventListener("click", () =>{
          /**----------------------Bin to Dec Reuse end--------------------------**/
 
       }
+      /*-------------------------*/
+      //Octa to any
+
+      /*-----------------------*/ 
+      //Octa to bina
+
+      if(options.selectedOptions[0].label == "Octal" && options2.selectedOptions[0].label == "Binario" )
+      {
+        let check = false;
+        let restPlaces;
+        let RepeatPlaces;
+        let castedNumb = inputEntry.value;
+        let arrayToBin = [];
+        let finalArrayToBin = [];
+        let cont = 0;
+        let contPlaces = 0;
+        while(cont < castedNumb.length){
+            arrayToBin = [];
+            let timelyVariable = Number(castedNumb[cont]);
+          
+          if(timelyVariable == 8 || timelyVariable == 9){check = true; break;}  
+          if(timelyVariable>0){                              
+            while(timelyVariable >0){
+                
+                    
+                     
+                if(timelyVariable % 2 == 0) {
+                    //Easy solution***** using push and toReversed()//join() js functions
+                    arrayToBin.push(0);
+                    contPlaces++;
+               
+                }else{
+                    arrayToBin.push(1);
+                    contPlaces++;
+                
+                }
+                timelyVariable = Math.floor(timelyVariable/2);
+                
+            
+            }
+             restPlaces = 3 - contPlaces;
+             RepeatPlaces = 0;
+             while(RepeatPlaces < restPlaces){
+                arrayToBin.push(0); 
+                RepeatPlaces++;
+             }
+             contPlaces = 0;
+          }else{
+            let contador0 = 0;
+            while(contador0 <= 2){arrayToBin.push(0); contador0++;}
+          }
+          for(let xxx = 0; xxx < arrayToBin.length; xxx++)finalArrayToBin.push(arrayToBin.toReversed()[xxx]);
+          cont++;
+        }
+        if(check){out.value = 'Só numeros entre 0s e 7s';}else{out.value = finalArrayToBin.join("");}
+        
+      }
 })
 
 Limpar.addEventListener("click", () =>{
