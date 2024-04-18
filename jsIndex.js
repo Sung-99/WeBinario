@@ -585,11 +585,86 @@ convr.addEventListener("click", () =>{
                 }
                  
       }
+      /**------------------reuse of bin to oct upside end------------------* */
       /*---------------------------*/ 
       //Hex to Dec
       
       if(options.selectedOptions[0].label == "Hexa" && options2.selectedOptions[0].label == "Decimal" )
       {
+        /**----------------------Hexa to bin Reuse--------------------------**/
+        let restPlaces;
+        let RepeatPlaces;
+        let castedNumb = inputEntry.value;
+        let arrayToBin = [];
+        let finalArrayToBin = [];
+        let cont = 0;
+        let contPlaces = 0;
+        while(cont < castedNumb.length){
+            arrayToBin = [];
+            let timelyVariable = Number(castedNumb[cont]);
+          
+            
+          if(timelyVariable>0){                              
+            while(timelyVariable >0){
+                
+                    
+                     
+                if(timelyVariable % 2 == 0) {
+                    //Easy solution***** using push and toReversed()//join() js functions
+                    arrayToBin.push(0);
+                    contPlaces++;
+               
+                }else{
+                    arrayToBin.push(1);
+                    contPlaces++;
+                
+                }
+                timelyVariable = Math.floor(timelyVariable/2);
+                
+            
+            }
+             restPlaces = 4 - contPlaces;
+             RepeatPlaces = 0;
+             while(RepeatPlaces < restPlaces){
+                arrayToBin.push(0); 
+                RepeatPlaces++;
+             }
+             contPlaces = 0;
+          }else{
+            let contador0 = 0;
+            while(contador0 <= 3){arrayToBin.push(0); contador0++;}
+          }
+         
+          for(let xxx = 0; xxx < arrayToBin.length; xxx++)finalArrayToBin.push(arrayToBin.toReversed()[xxx]);
+          
+            cont++;
+        }
+        /**----------------------Hexa to bin Reuse end--------------------------**/
+
+        /**----------------------Bin to Dec Reuse--------------------------**/
+         let xInitial = 0;
+         onlyBin = 0;
+         result = 0; 
+         let castNumb = finalArrayToBin;
+         let lengthMyBinNumber = castNumb.length ;
+         
+        while(xInitial < castNumb.length){
+        
+            if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
+                onlyBin++;
+            }
+        
+            xInitial++;
+        }
+        xInitial = 0;
+        while(xInitial < castNumb.length){
+            lengthMyBinNumber--;
+            if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
+                xInitial++;
+        }
+       
+            out.value = result;
+         /**----------------------Bin to Dec Reuse end--------------------------**/
 
       }
 })
