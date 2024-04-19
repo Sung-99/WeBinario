@@ -488,24 +488,14 @@ convr.addEventListener("click", () =>{
 
 
         /**------------------reuse of bin to oct upside------------------* */
-        let onlyBin = 0;
+        
         let result = 0; 
         let castNumb =finalArrayToBin;
         let lengthMyBinNumber = castNumb.length ;
         let xInitial = 0;
         let contt = 0;
         let arrayToOct = [];
-        let ocasionalCont = 0;
-        while(xInitial < castNumb.length){
-        
-            if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
-                onlyBin++;
-            }
-        
-            xInitial++;
-        }
-        xInitial = 0;
-         
+        let ocasionalCont = 0;        
         if(castNumb.length > 3 && castNumb.length%3!=0){
         
             let contInnnerWhile = 0;
@@ -560,10 +550,7 @@ convr.addEventListener("click", () =>{
                 }
             }
 
-        if(onlyBin > 0){
-            out.value ='Apenas numeros 1s e 0s';
-        }else
-            if(castNumb.length > 3  &&  castNumb.length%3 != 0){
+        if(castNumb.length > 3  &&  castNumb.length%3 != 0){
                 if(arrayToOct.toReversed()[1] > 0 && arrayToOct.toReversed()[0] == 0){
                     arrayToOct.pop();//remove the zero when the most left number is 0(after all calculations like *0*00111010 or other number)
                     //or other number in hexa to bin like 321(16)  = 001100100001(2) the first number is 0
@@ -647,16 +634,6 @@ convr.addEventListener("click", () =>{
          result = 0; 
          let castNumb = finalArrayToBin;
          let lengthMyBinNumber = castNumb.length ;
-         
-        while(xInitial < castNumb.length){
-        
-            if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
-                onlyBin++;
-            }
-        
-            xInitial++;
-        }
-        xInitial = 0;
         while(xInitial < castNumb.length){
             lengthMyBinNumber--;
             if(castNumb[xInitial] == "1")result = result + (parseInt(castNumb[xInitial]) * (Math.pow(2, lengthMyBinNumber)))
@@ -783,7 +760,7 @@ convr.addEventListener("click", () =>{
         
         /*-------------------------------bin to hexa reuse--------------------*/
         
-       let onlyBin = 0;
+       
        let result = 0; 
        let castNumb =finalArrayToBin;
        let lengthMyBinNumber = castNumb.length ;
@@ -793,9 +770,7 @@ convr.addEventListener("click", () =>{
        let ocasionalCont = 0;
        while(xInitial < castNumb.length){
         
-        if(castNumb[xInitial] != "1" && castNumb[xInitial] != "0"){
-            onlyBin++;
-        }
+        
         
             xInitial++;
        }
@@ -925,9 +900,35 @@ convr.addEventListener("click", () =>{
     }
     /*-----------------------------------------*/
     //Octa to Dec
-    if(options.selectedOptions[0].label == "Octal" && options2.selectedOptions[0].label == "Hexa" )
-    {
+    if(options.selectedOptions[0].label == "Octal" && options2.selectedOptions[0].label == "Decimal" )
+    {   
 
+        //*------------------------Bin to dec reuse-----------------------//
+        let check = false;
+    
+        let result = 0; 
+        let castNumb =inputEntry.value;
+        let lengthMyBinNumber = castNumb.length ;
+        let xInitial = 0;
+        
+           
+         
+          
+        xInitial = 0;
+        while(xInitial < castNumb.length){
+         lengthMyBinNumber--;
+         if(Number(castNumb[xInitial]) == 8 || Number(castNumb[xInitial]) == 9){check = true; break;}  
+         if(Number(castNumb[xInitial]) >= 1 || Number(castNumb[xInitial]) <= 7) result = result + (parseInt(castNumb[xInitial]) * (Math.pow(8, lengthMyBinNumber)))
+             xInitial++;
+        }
+        if(check){
+            out.value = 'Só numeros entre 0s e 7s';
+        }else{
+         out.value = result;
+        }
+        //*------------------------Bin to dec reuse end-----------------------//
+
+         
     }
 
 
