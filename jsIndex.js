@@ -724,6 +724,12 @@ convr.addEventListener("click", () =>{
         if(check){out.value = 'Só numeros entre 0s e 7s';}else{out.value = finalArrayToBin.join("");}
         
       }
+      //Octa to hexa
+
+      if(options.selectedOptions[0].label == "Octal" && options2.selectedOptions[0].label == "Hexa" )
+      {
+        
+      }
 })
 
 Limpar.addEventListener("click", () =>{
